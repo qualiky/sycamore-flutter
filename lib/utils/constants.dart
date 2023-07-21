@@ -179,3 +179,15 @@ List<Country> loadCountryNames() {
 
   return countries;
 }
+
+
+void showSnackbar(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+      behavior: SnackBarBehavior.floating,
+      margin: const EdgeInsets.all(16.0),
+      duration: const Duration(seconds: 2),
+    ),
+  );
+}

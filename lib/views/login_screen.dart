@@ -1,3 +1,4 @@
+import 'package:com_sandeepgtm_sycamore_mobile/utils/constants.dart';
 import 'package:com_sandeepgtm_sycamore_mobile/views/home_screen.dart';
 import 'package:com_sandeepgtm_sycamore_mobile/views/signup_screen.dart';
 import 'package:flutter/material.dart';
@@ -141,6 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       HomeScreen(onlineState: isOnline)
                               ),
                           );
+                        } else {
+                          context.mounted ? showSnackbar(context, loginSuccessState['message'] ?? loginSuccessState['error']) : null;
                         }
                       },
                       shape: RoundedRectangleBorder(

@@ -113,16 +113,11 @@ class NetworkHelper {
     print(parsedResponse);
 
     signupStatus['statusCode'] = response.statusCode;
-    signupStatus['message'] = parsedResponse['message'] ?? 'Server returned no response.';
-
-    if(response.statusCode == 200) {
-      print('Sign up successful');
-    } else  {
-      print('No sign up.');
-    }
+    signupStatus['message'] = parsedResponse['message'] ?? parsedResponse['error'];
 
     return signupStatus;
   }
+
   
   Future<Map<dynamic, dynamic>> verifyEmail(String email) async {
     var emailStatus = {};
@@ -189,6 +184,8 @@ class NetworkHelper {
       return logoutStatus;
     }
   }
+
+
 
   String _extractSessionKey(String cookie) {
     final keyStart = cookie.indexOf('sessionKey=') + 11;
